@@ -3,11 +3,11 @@
 require_once('connection.php');
 session_start();
 
-$title = htmlspecialchars($_POST['titre']);
-$description = htmlspecialchars($_POST['contenu']);
+$title = addslashes(htmlspecialchars($_POST['titre']));
+$description = addslashes(htmlspecialchars($_POST['contenu']));
 $price = $_POST['prix'];
 $date = $_POST['date_publication'];
-$place = htmlspecialchars($_POST['lieu']);
+$place = addslashes(htmlspecialchars($_POST['lieu']));
 $categories = $_POST['id_categories'];
 $id_users= $_SESSION['id_users'];
 

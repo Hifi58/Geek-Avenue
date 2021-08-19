@@ -26,6 +26,9 @@ $rs = $db->prepare("SELECT * FROM annonces INNER JOIN users ON users.id_users=an
 $rs->bindParam(':id_users', $id_users);
 $rs->execute();?>
 <section>
+    <div class="new">
+        <button class="three show"><a href="new.php">Ajouter</a></button>
+    </div>
 <?php while($data = $rs->fetch()){?>
 <div class="annoncescontainer">  
     <div class="annonceswrapper">       
@@ -34,8 +37,8 @@ $rs->execute();?>
         <p><?php echo $data['contenu']; ?></p>
         <p><?php echo $data['prix']. '€'; ?></p>
         <p><?php echo $data['date_publication']; ?></p>
-        <button class="three update">Modifier</button>
-        <button class="three delete">Supprimer</button>  
+        <button class="three update"><?php echo "<a href= edit.php?id_annonces=" . $data['id_annonces'] . "&titre=" . urlencode($data['titre']) . "&lieu=" . urlencode($data['lieu']) . "&contenu=" . urlencode($data['contenu']) . "&prix=" . $data['prix'] . "&date_publication=" . $data['date_publication']. '>Modifier</a>' ?></button>
+        <button class="three delete"><?php echo "<a href= sql/delete.php?id_annonces=" . $data['id_annonces'] . ">Supprimer</a>"?></button>  
     </div>
 </div>
 <?php
