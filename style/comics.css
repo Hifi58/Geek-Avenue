@@ -30,8 +30,9 @@ nav{
     display: flex;
     justify-content: space-between;
     width: 100%;
+    height: 16.5vh;
     padding: 1.5em;
-    background: linear-gradient(170deg, #d62b1b 0%, #8a2a43 67%, #691c67 90%, #420f61 100%);
+    background: linear-gradient(170deg, #d62b1b 0%, #2a4f8a 67%, #487cad 90%, #5796bb 100%);
     color: white;
     box-shadow: 0px 5px rgb(46, 45, 43);
     align-items: center;
@@ -69,6 +70,16 @@ nav a:hover{
 .logo{
     display: flex;
     align-items: center;
+    position: relative;
+}
+
+.logo img{
+    position: absolute;
+    bottom: -200px;
+}
+
+.logo h1{
+    display: none;
 }
 
 /******************************
@@ -101,89 +112,28 @@ nav a:hover{
 .categories a:hover{
     text-decoration: underline;
 }
-.pagination{
-    display: flex;
-    margin-top: 2em;
-}
 
-.pagination li{
-    list-style: none;
-    margin: 2em;
-}
-
-/******************************
-
-       Register & Login
-
-******************************/
-
-section{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-section form{
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-}
-
-.formlogin{
-    width: 320px;
-    height: 400px;
-    background-color: gray;
-}
-
-.formlogin div{
-    margin: auto;
-    text-align: center;
-}
-
-.formlogin input{
-    padding: 1em 1.5em;
-    margin-top: 1em;
-    background-color: transparent;
-    border: 1px black solid;
-}
-
-.formlogin input:focus{
-    outline: none;
-    background-color: whitesmoke;
-}
-
-.formlogin input::placeholder{
-    color: black;
-}
-
-form span{
-    display: flex;
-    flex-direction: column;
-}
-
-.eye{
-    font-size: 1.5em;
-    align-items: center;
-}
 /******************************
 
        Card Annonces
 
 ******************************/
 
-.select{
+section{
+    display: flex;
+    min-height: 90vh;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .annoncescontainer{
     width: 320px;
     height: 400px;
-    background: linear-gradient(173deg, #211f1e 1%, #232021 4%, #c3b0c3 71%, #e0dce4 100%);
+    background: radial-gradient(#72c7ec 25%, #2a6188 100%);
     display: flex;
     margin-top: 3em;
     margin-left: 2em;
-    border-radius: 5px;
-    box-shadow: 0px 8px 0px 0px hsl(200, 5%, 55%);
+    border: solid 2px black;
 }
 
 .annonceswrapper{
@@ -194,68 +144,20 @@ form span{
 .three{
     cursor: pointer;
     font-family: var(--font_title);
-    border-radius: 7px;
     border: none;
     position: relative;
-    color: hsl(0, 3%, 94%);
 }
 
 .three a{
     text-decoration: none;
-    color: hsl(0, 3%, 94%);
+    color: hsl(0, 7%, 14%);
     font-size: 1.2rem;
 }
 
 .show{
-    background-color: hsl(108, 89%, 40%);
-    border: solid hsl(108, 89%, 40%);
-    box-shadow: 0 6px hsl(108, 86%, 30%);
+    background-color: hsl(0, 9%, 96%);
+    border: solid hsl(0, 7%, 14%) 1px;
     padding-right: 1.5em;
     padding-left: 1.5em;
-}
-
-.show:hover{
-    box-shadow: 0 4px hsl(108, 86%, 20%);
-    top: 2px;
-}
-
-.show:active{
-    box-shadow: 0 0 hsl(108, 86%, 20%);
-    top:6px;
-}
-
-.update{
-    background-color: hsl(32, 86%, 46%);
-    border: solid hsl(32, 86%, 46%);
-    box-shadow: 0 6px hsl(32, 86%, 36%);
-}
-
-.update:hover{
-    box-shadow: 0 4px hsl(32, 86%, 26%);
-    top: 2px;
-}
-
-.update:active{
-    box-shadow: 0 0 hsl(32, 86%, 16%);
-    top:6px;
-}
-
-.delete{
-    background-color: hsl(0, 89%, 42%);
-    border: solid hsl(0, 89%, 42%);
-    box-shadow: 0 6px hsl(0, 89%, 32%);
-}
-
-.delete:hover{
-    box-shadow: 0 4px hsl(0, 89%, 22%);
-    top: 2px;
-}
-
-.delete:active{
-    box-shadow: 0 0 hsl(32, 86%, 16%);
-    top:6px;
-}
-
-.new button{
-    margin: 2em;
+    transform: skew(-15deg);
 }

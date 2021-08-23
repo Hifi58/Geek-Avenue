@@ -25,14 +25,42 @@ exit();
     <ul>
         <li><a href="comics.php">Comics</a></li>
         <li><a href="manga.php">Mangas</a></li>
-        <li><a href="bd.php">Bande déssinées</a></li>
+        <li><a href="bd.php">Bande dessinées</a></li>
         <li><a href="goodies.php">Goodies</a></li>
     </ul>
 </div>
 
 <?php
-$sql = "SELECT * FROM annonces ORDER BY date_publication DESC";
+
+//Code de la pagination
+if(isset($_GET['page']) && !empty($_GET['page'])){
+    $page = (int) strip_tags($_GET['page']);
+}else{
+    $page = 1;
+}
+
+$sql = 'SELECT COUNT(*) AS nb_annonces FROM annonces';
 $rs = $db->prepare($sql);
+$rs->execute();
+
+// Récuperation du nbr d'articles
+$result = $rs->fetch();
+$nbannonces = (int) $result['nb_annonces'];
+
+// Nbr d'article par page
+$inonepage = 4;
+
+// calcule du nbr de page
+$nbpages = ceil($nbannonces/$inonepage);
+
+// Calcul de la première annonce de la page
+$firstone = ($page * $inonepage) - $inonepage;
+
+//Code d'affichage des articles
+$sql = "SELECT * FROM annonces ORDER BY date_publication DESC LIMIT :firstone,:inonepage;";
+$rs = $db->prepare($sql);
+$rs->bindValue(':firstone', $firstone, PDO::PARAM_INT);
+$rs->bindValue(':inonepage', $inonepage, PDO::PARAM_INT);
 $rs->execute();?>
 <section>
 <?php while($data = $rs->fetch()){?>
@@ -52,6 +80,13 @@ $rs->execute();?>
 <?php
 };
 ?>
+<div class="containerpage">
+    <ul class="pagination" >
+        <?php for($nbpage = 1; $nbpage <= $nbpages; $nbpage++):?>
+            <li><a href="./?page=<?= $nbpage ?>" ><?= $nbpage ?></a></li>
+        <?php endfor ?>
+    </ul>
+</div>
 </section>
 
 </body>

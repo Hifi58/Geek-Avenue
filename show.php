@@ -6,7 +6,7 @@ if(!isconnected()){
    header("location: login.php");
 exit(); 
 
-$id_annonces = $_GETS['id_annonces'];
+$id_annonces = $_GET['id_annonces'];
 }
 ?>
 
@@ -21,8 +21,8 @@ $id_annonces = $_GETS['id_annonces'];
 </head>
 <body>
 <?php require('templates/navlog.php');
-var_dump($id_annonces);
-die;
+// var_dump($id_annonces);
+// die;
 $sql = "SELECT * FROM annonces WHERE annonces.id_annonces = $id_annonces ";
 $rs = $db->prepare($sql);
 $rs->execute();?>

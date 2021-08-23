@@ -15,17 +15,26 @@ exit();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style/home.css">
+    <link rel="stylesheet" href="./style/bd.css">
     <title>Accueil</title>
 </head>
 <body>
 
-<?php require('templates/navlog.php');?>
+<nav>
+    <div class="logo">
+        <a href="index_crud.php"><img src="style/images/asterix.png" width="100px" alt="logo"/></a>
+        <h1>Geek Avenue</h1>
+    </div>
+    <ul>
+        <li><a href="perso.php">Espace Perso</a></li>
+        <li><a href="logout.php">Déconnexion</a></li>
+    </ul>
+</nav>
 <div class="categories">
     <ul>
         <li><a href="comics.php">Comics</a></li>
         <li><a href="manga.php">Mangas</a></li>
-        <li><a href="bd.php">Bande déssinées</a></li>
+        <li><a href="bd.php">Bande dessinées</a></li>
         <li><a href="goodies.php">Goodies</a></li>
     </ul>
 </div>
