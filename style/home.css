@@ -73,6 +73,37 @@ nav a:hover{
 
 /******************************
 
+        Categories
+
+******************************/
+
+.categories{
+    margin-top: 2.5em;
+    margin-bottom: -1.5em;
+}
+
+.categories ul{
+    display: flex;
+    justify-content: center;
+}
+
+.categories li{
+    list-style: none;
+    margin-right: 1em;
+}
+
+.categories a{
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: hsl(0, 4%, 15%);
+}
+
+.categories a:hover{
+    text-decoration: underline;
+}
+
+/******************************
+
        Register & Login
 
 ******************************/
@@ -80,6 +111,8 @@ nav a:hover{
 section{
     display: flex;
     min-height: 90vh;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 section form{

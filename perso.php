@@ -37,7 +37,7 @@ $rs->execute();?>
         <p><?php echo $data['contenu']; ?></p>
         <p><?php echo $data['prix']. '€'; ?></p>
         <p><?php echo $data['date_publication']; ?></p>
-        <button class="three update"><?php echo "<a href= edit.php?id_annonces=" . $data['id_annonces'] . "&titre=" . urlencode($data['titre']) . "&lieu=" . urlencode($data['lieu']) . "&contenu=" . urlencode($data['contenu']) . "&prix=" . $data['prix'] . "&date_publication=" . $data['date_publication']. '>Modifier</a>' ?></button>
+        <button class="three update"><?php echo "<a href= edit.php?id_annonces=" . $data['id_annonces'] . "&titre=" . urlencode($data['titre']) . "&lieu=" . urlencode($data['lieu']) . "&contenu=" . urlencode($data['contenu']) . "&prix=" . $data['prix'] . "&image".$data['image'] . "&date_publication=" . $data['date_publication']. '>Modifier</a>' ?></button>
         <button class="three delete"><?php echo "<a href= sql/delete.php?id_annonces=" . $data['id_annonces'] . ">Supprimer</a>"?></button>  
     </div>
 </div>

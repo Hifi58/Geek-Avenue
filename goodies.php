@@ -31,7 +31,7 @@ exit();
 </div>
 
 <?php
-$sql = "SELECT * FROM annonces ORDER BY date_publication DESC";
+$sql = "SELECT * FROM annonces INNER JOIN categories ON categories.id_categories=annonces.id_categories WHERE annonces.id_categories = 4 ORDER BY annonces.date_publication DESC";
 $rs = $db->prepare($sql);
 $rs->execute();?>
 <section>

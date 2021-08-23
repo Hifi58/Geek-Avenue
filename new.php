@@ -23,12 +23,13 @@ $id_users = $_SESSION['id_users'];
 <?php require('templates/navlog.php');?>
 
     <section>
-        <form action="sql/insert.php" method="POST">
+        <form enctype="multipart/form-data" action="sql/insert.php" method="POST">
 
             <input type="text" placeholder="Titre" name="titre" required>
             <input type="text" placeholder="Lieu" name="lieu" required>
             <textarea placeholder="Description" name="contenu" required></textarea>
             <input type="number" step="any" placeholder="Prix" name="prix"required>
+            <input type="file" name="image">
             <input type="date" name="date_publication"required>
             <!-- <input type="file" name="" id=""> -->
             <select name="id_categories" id="">
