@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     <section>
         <form  method="post" action="" class="formlogin">
             <div>
-                <input type="text" name="name" placeholder="Nom d'utilisateur" />
+                <span><input type="text" name="name" placeholder="Nom d'utilisateur" /><p class="eye">&#9998;</p></span>
                 <span id="display"><input id="input" type="password" name="password" placeholder="Mot de passe" /><p class="eye">👁</p></span>
                 <input  class="submit" type="submit" name="valider" value="Se connecter"/>
             </div>

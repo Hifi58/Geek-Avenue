@@ -13,7 +13,7 @@ require_once('sql/connection.php');
 <body>
     <?php require('templates/nav.html');
 
-    $sql = "SELECT * FROM annonces LIMIT 5";
+    $sql = "SELECT * FROM annonces LIMIT 0,8";
     $rs = $db->prepare($sql);
     $rs->execute();?>
 <section class="select"> 

@@ -14,7 +14,7 @@ $id_users= $_SESSION['id_users'];
 $file_name = $_FILES['image']['name'];
 $file_infos = pathinfo($file_name);
 $file_extension = $file_infos['extension'];
-$extensions_allowed = array("jpeg", "jpg", "png","gif");
+$extensions_allowed = array("jpeg", "jpg", "png","gif","");
 $folder = "../style/images/";
 
 if (!(in_array($file_extension, $extensions_allowed)))
@@ -34,16 +34,18 @@ if (!(in_array($file_extension, $extensions_allowed)))
             $sql = "INSERT INTO annonces(id_users, titre, contenu, prix, date_publication, lieu, image, id_categories)VALUES($id_users, '$title', '$description', '$price', '$date', '$place','$file_name_for_db', $categories)";
             $rs = $db->prepare($sql);
             $rs->execute();
-            header('Location:../perso.php');
-        }
-        else
+        }elseif(empty($_FILES["image"]["tmp_name"])){
+            $sql = "INSERT INTO annonces(id_users, titre, contenu, prix, date_publication, lieu, image, id_categories)VALUES($id_users, '$title', '$description', '$price', '$date', '$place', NULL, $categories)";
+            $rs = $db->prepare($sql);
+            $rs->execute();
+        }else
         {
             echo "Erreur d'Upload";
         }
     }
 
 
-// echo ("<script LANGUAGE='JavaScript'>
-// window.alert('Ajout effectué');
-//  window.location.href='../index_crud.php';
-//  </script>");
+echo ("<script LANGUAGE='JavaScript'>
+window.alert('Ajout effectué');
+ window.location.href='../perso.php';
+ </script>");

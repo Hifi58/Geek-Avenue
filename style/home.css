@@ -159,12 +159,15 @@ section form{
 
 form span{
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
+    align-items: baseline;
+    
 }
 
 .eye{
     font-size: 1.5em;
     align-items: center;
+    
 }
 /******************************
 

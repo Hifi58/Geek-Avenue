@@ -32,7 +32,7 @@ exit();
 <div class="annonces">
 <?php
 //pagination
-$annoncesParPage= 4;
+$annoncesParPage= 10;
 $annoncesTotalesReg= $db->query('SELECT id_annonces FROM annonces');
 $annoncesTotales= $annoncesTotalesReg->rowCount();
 $pagesTotales= ceil($annoncesTotales/$annoncesParPage);
