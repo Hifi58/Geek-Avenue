@@ -29,43 +29,33 @@ exit();
         <li><a href="goodies.php">Goodies</a></li>
     </ul>
 </div>
-
+<div class="annonces">
 <?php
+//pagination
+$annoncesParPage= 4;
+$annoncesTotalesReg= $db->query('SELECT id_annonces FROM annonces');
+$annoncesTotales= $annoncesTotalesReg->rowCount();
+$pagesTotales= ceil($annoncesTotales/$annoncesParPage);
 
-//Code de la pagination
-if(isset($_GET['page']) && !empty($_GET['page'])){
-    $page = (int) strip_tags($_GET['page']);
+if(isset($_GET['page']) && !empty($_GET['page']) && $_GET['page'] > 0 && $_GET['page'] <= $pagesTotales){
+    $_GET['page'] = intval($_GET['page']);
+    $pageCourante = $_GET['page'];
 }else{
-    $page = 1;
+    $pageCourante = 1;
 }
 
-$sql = 'SELECT COUNT(*) AS nb_annonces FROM annonces';
-$rs = $db->prepare($sql);
-$rs->execute();
-
-// Récuperation du nbr d'articles
-$result = $rs->fetch();
-$nbannonces = (int) $result['nb_annonces'];
-
-// Nbr d'article par page
-$inonepage = 4;
-
-// calcule du nbr de page
-$nbpages = ceil($nbannonces/$inonepage);
-
-// Calcul de la première annonce de la page
-$firstone = ($page * $inonepage) - $inonepage;
+$depart = ($pageCourante-1)*$annoncesParPage;
 
 //Code d'affichage des articles
-$sql = "SELECT * FROM annonces ORDER BY date_publication DESC LIMIT :firstone,:inonepage;";
+$sql = "SELECT * FROM annonces ORDER BY date_publication DESC LIMIT $depart ,$annoncesParPage";
 $rs = $db->prepare($sql);
-$rs->bindValue(':firstone', $firstone, PDO::PARAM_INT);
-$rs->bindValue(':inonepage', $inonepage, PDO::PARAM_INT);
 $rs->execute();?>
+
 <section>
+
 <?php while($data = $rs->fetch()){?>
     
-<div class="annoncescontainer" background-image="url('style/images<?php echo $data['image'];?>')">  
+<div class="annoncescontainer">  
     <div class="annonceswrapper">       
         <h2><?php echo $data['titre']; ?></h2>
         <h4><?php echo $data['lieu']; ?></h4>
@@ -76,18 +66,25 @@ $rs->execute();?>
         <button class="three show"><?php echo "<a href= show.php?id_annonces=" . $data['id_annonces'] . ">Voir</a>"?></button>
     </div>  
 </div>
-<br/>          
+         
 <?php
-};
+};?>
+</div>
+<div class="pagination">
+<?php
+for($i=1;$i<= $pagesTotales; $i++){
+    if($i == $pageCourante){
+        echo $i. ' ';
+    }elseif($i == $pageCourante+1){
+        echo'<a href="index_crud.php?page='.$i.'" class="next">'.$i.'</a> ';
+    }else{
+        echo'<a href="index_crud.php?page='.$i.'">'.$i.'</a> ';
+    }
+}
 ?>
-<div class="containerpage">
-    <ul class="pagination" >
-        <?php for($nbpage = 1; $nbpage <= $nbpages; $nbpage++):?>
-            <li><a href="./?page=<?= $nbpage ?>" ><?= $nbpage ?></a></li>
-        <?php endfor ?>
-    </ul>
 </div>
 </section>
 
+</script>
 </body>
 </html>

@@ -120,7 +120,7 @@ nav a:hover{
 section{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    /* min-height: 70vh; */
 }
 
 section form{
@@ -258,4 +258,15 @@ form span{
 
 .new button{
     margin: 2em;
+}
+
+/******************************
+
+       Pagination
+
+******************************/
+
+.pagination{
+    display: flex;
+    justify-content: center;
 }
