@@ -282,6 +282,7 @@ form span{
     box-shadow: 5px 5px 10px hsl(0, 1%, 19%);
     display: flex;
     align-items: center;
+    width: 200px;
 }
 
 .annoncesdetail{

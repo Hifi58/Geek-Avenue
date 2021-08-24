@@ -32,8 +32,17 @@ $result = $rs->fetchAll((PDO::FETCH_ASSOC))?>
 <div class="containerdetail">
    <?php foreach($result as $data){?>
 
-       <div class="annoncesdetail">       
-         <img src="style/images<?php echo $data['image'];?>" width="400px">
+       <div class="annoncesdetail">
+
+          <?php 
+
+          if(empty($data['image'])){
+            echo "<img src='style/images/default.jpg' alt='image par défault' width='200px'>";
+         } else{       
+         echo '<img src="style/images/'.$data['image'].'">';
+         };
+
+         ?>
          <div class="annoncescontent">
             <h2><?php echo $data['titre']; ?></h2>
             <p>Publié le <?php echo $data['date_publication']; ?></p>
