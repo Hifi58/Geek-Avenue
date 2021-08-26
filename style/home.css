@@ -78,9 +78,7 @@ nav a:hover{
 ******************************/
 
 .categories{
-    margin-top: 2.5em;
-    margin-bottom: -1.5em;
-    z-index: 999;
+    margin-top: 2em;
 }
 
 .categories ul{
@@ -269,7 +267,6 @@ form span{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 2em;
     margin-bottom: 2em;
 
 }
@@ -278,6 +275,11 @@ form span{
     margin-bottom: 1em;
 }
 
+.search{
+    display: flex;
+    margin-top: 1.5em;
+    justify-content: center;
+}
 /******************************
 
        Pagination

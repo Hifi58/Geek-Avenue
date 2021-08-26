@@ -22,6 +22,7 @@ exit();
 <body>
 
 <?php require('templates/navlog.php');?>
+
 <div class="categories">
     <ul>
         <li><a href="comics.php">Comics</a></li>
@@ -37,6 +38,7 @@ $annoncesParPage= 8;
 $annoncesTotalesReg= $db->query('SELECT id_annonces FROM annonces');
 $annoncesTotales= $annoncesTotalesReg->rowCount();
 $pagesTotales= ceil($annoncesTotales/$annoncesParPage);
+
 
 if(isset($_GET['page']) && !empty($_GET['page']) && $_GET['page'] > 0 && $_GET['page'] <= $pagesTotales){
     $_GET['page'] = intval($_GET['page']);

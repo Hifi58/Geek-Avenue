@@ -35,7 +35,7 @@ if (!(in_array($file_extension, $extensions_allowed)))
             $rs = $db->prepare($sql);
             $rs->execute();
         }elseif(empty($_FILES["image"]["tmp_name"])){
-        $sql = "INSERT INTO annonces(id_users, titre, contenu, prix, date_publication, lieu, image, id_categories)VALUES($id_users, '$title', '$description', '$price', '$date', '$place', NULL, $categories)";
+        $sql = "UPDATE annonces SET  titre = '$title', contenu = '$description', prix = '$price', date_publication = '$date', lieu = '$place', image = NULL, id_categories = '$categories' WHERE  id_annonces = $id_annonces";
         $rs = $db->prepare($sql);
         $rs->execute();
         }
