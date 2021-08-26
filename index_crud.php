@@ -16,6 +16,7 @@ exit();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/home.css">
+    <link rel="icon" type="image/png" href="style/images/logo.png" />
     <title>Accueil</title>
     <script src="https://unpkg.com/@webcreate/infinite-ajax-scroll@^3.0.0-beta.6/dist/infinite-ajax-scroll.min.js"></script>
 </head>

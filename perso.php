@@ -25,10 +25,12 @@ $id_users = $_SESSION['id_users'];
 $rs = $db->prepare("SELECT * FROM annonces INNER JOIN users ON users.id_users=annonces.id_users WHERE annonces.id_users=:id_users ORDER BY annonces.date_publication DESC");
 $rs->bindParam(':id_users', $id_users);
 $rs->execute();?>
+
+<div class="new">
+    <button class="three show"><a href="new.php">Ajouter</a></button>
+</div>
 <section>
-    <div class="new">
-        <button class="three show"><a href="new.php">Ajouter</a></button>
-    </div>
+  
 <?php while($data = $rs->fetch()){?>
 <div class="annoncescontainer">  
     <div class="annonceswrapper">       
@@ -43,7 +45,10 @@ $rs->execute();?>
 </div>
 <?php
 };
-?>
+?>  
+
+
+
 </section>
 </body>
 </html>

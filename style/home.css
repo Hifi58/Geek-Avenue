@@ -192,6 +192,7 @@ form span{
 .annonceswrapper{
     margin: auto;
     line-height: 3rem;
+    text-align: center;
 }
 
 .three{
@@ -259,8 +260,10 @@ form span{
     top:6px;
 }
 
-.new button{
-    margin: 2em;
+.new{
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: -1em;
 }
 
 #annonces{
@@ -316,4 +319,16 @@ form span{
     flex-direction: column;
     margin-left: 1em;
     align-content: space-between;
+}
+
+/******************************
+
+       RESPONSIVE
+
+******************************/
+
+@media screen and (max-width: 572px){
+    .logo{
+        display: none;
+    }
 }
