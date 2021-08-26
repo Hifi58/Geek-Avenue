@@ -80,6 +80,7 @@ nav a:hover{
 .categories{
     margin-top: 2.5em;
     margin-bottom: -1.5em;
+    z-index: 999;
 }
 
 .categories ul{
@@ -262,6 +263,19 @@ form span{
 
 .new button{
     margin: 2em;
+}
+
+#annonces{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+
+}
+
+.spinner{
+    margin-bottom: 1em;
 }
 
 /******************************

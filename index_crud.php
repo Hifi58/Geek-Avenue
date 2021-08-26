@@ -17,6 +17,7 @@ exit();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/home.css">
     <title>Accueil</title>
+    <script src="https://unpkg.com/@webcreate/infinite-ajax-scroll@^3.0.0-beta.6/dist/infinite-ajax-scroll.min.js"></script>
 </head>
 <body>
 
@@ -32,7 +33,7 @@ exit();
 <div class="annonces">
 <?php
 //pagination
-$annoncesParPage= 10;
+$annoncesParPage= 8;
 $annoncesTotalesReg= $db->query('SELECT id_annonces FROM annonces');
 $annoncesTotales= $annoncesTotalesReg->rowCount();
 $pagesTotales= ceil($annoncesTotales/$annoncesParPage);
@@ -52,7 +53,7 @@ $rs = $db->prepare($sql);
 $rs->execute();?>
 
 <section>
-
+<div id="annonces">
 <?php while($data = $rs->fetch()){?>
     
 <div class="annoncescontainer">  
@@ -70,6 +71,7 @@ $rs->execute();?>
 <?php
 };?>
 </div>
+<div id="spinner1" class="spinner">Chargement...</div>
 <div class="pagination">
 <?php
 for($i=1;$i<= $pagesTotales; $i++){
@@ -85,6 +87,14 @@ for($i=1;$i<= $pagesTotales; $i++){
 </div>
 </section>
 
+<script> 
+let ias = new InfiniteAjaxScroll('#annonces', {
+  item: '.annoncescontainer',
+  next: '.next',
+  spinner: '.spinner',
+  pagination: '.pagination'
+});
 </script>
+
 </body>
 </html>
