@@ -7,9 +7,8 @@
     --font-title: 'Acme', sans-serif;
 }
 
-*{
-    margin: 0;
-    padding: 0;
+
+*::before, *::after{
     box-sizing: border-box;
 }
 
@@ -17,58 +16,169 @@ body{
     background-color: rgb(233, 230, 230);
     min-height: 100vh;
     font-family: var(--font-title);
+    margin: 0;
 }
 
 
-/******************************
+/**********************
+      NAVIGATION
+**********************/
 
-        NAVIGATION
-
-******************************/
-
-nav{
-    display: flex;
-    justify-content: space-between;
+header{
+    background: linear-gradient(176deg, #f5ca1b 0%, #adffe2 100%);
+    text-align: center;
+    position: fixed;
+    z-index: 999;
     width: 100%;
-    padding: 1.5em;
-    background: linear-gradient(170deg, #d62b1b 0%, #8a2a43 67%, #691c67 90%, #420f61 100%);
-    color: white;
-    box-shadow: 0px 5px rgb(46, 45, 43);
-    align-items: center;
-}
-
-nav h1{
-    font-family: var(--font-title);
-    font-size: 2em;
-    font-weight: lighter;
-    letter-spacing: 5px;
-    margin-left: 0.5em;
-}
-
-nav ul{
-    display: flex;
-    
-}
-
-nav li{
-    list-style: none;
-    margin-right: 2em;
-}
-
-nav a{
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    font-size: 1.5em;
-    letter-spacing: 3px;
-}
-
-nav a:hover{
-    text-decoration: underline;
+    top: 0;
 }
 
 .logo{
+    color: hsl(60, 4%, 10%);
+    letter-spacing: 2px;
+}
+
+nav{
+  position: absolute; 
+  text-align: left; 
+  
+  left: 0;
+  background: linear-gradient(176deg, #adffe2 0%, #f5ca1b 100%);
+  width: 100%;
+  position: fixed;
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 400ms ease-in-out;
+}
+
+nav ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li{
+    margin-bottom: 1em;
+    margin-left: 1em;
+    letter-spacing: 2px;
+}
+
+nav a {
+    color: hsl(60, 4%, 10%);
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+}
+
+nav a:hover{
+    color: hsl(60, 3%, 23%);
+}
+
+.nav-toggle{
+    display: none;
+}
+
+.nav-toggle:checked ~ nav{
+    display: block;
+    transform: scale(1,1);
+}
+
+.nav-toggle-label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 1em;
+    height: 100%;
     display: flex;
     align-items: center;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after{
+    display: block;
+    background: hsl(60, 4%, 10%);
+    height: 2px;
+    width: 2em;
+    border-radius: 2px;
+    position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after{
+    content:'';
+    position: absolute;
+}
+
+.nav-toggle-label span::before{
+    bottom: 7px;
+}
+
+.nav-toggle-label span::after{
+    top: 7px;
+}
+
+.nav-toggle:checked ~nav a{
+    opacity: 1;
+    transition: opacity 150ms ease-in-out 250ms;
+}
+
+@media screen and (min-width: 1022px){
+    .nav-toggle-label{
+        display: none;
+    }
+
+    header{
+        display: grid;
+    }
+    
+    .logo{
+        grid-column: 1 / 2;
+    }
+
+    nav{
+        all: unset;
+        grid-column: 3 / 4;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    nav ul{
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    nav li{
+        margin-left: 3em;
+        margin-bottom: 0;
+    }
+
+    nav a{
+        opacity: 1;
+        position: relative;
+    }
+
+    nav a::before{
+        content:'';
+        display: block;
+        height: 5px;
+        background: white;
+        position: absolute;
+        top: -1em;
+        left: 0;
+        right: 0;
+        transform: scale(0, 1);
+        transform-origin: left;
+        transition: transform ease-in-out 250ms;
+    }
+
+    nav a:hover::before{
+        transform: scale(1,1);
+
+    }
 }
 
 /******************************
@@ -78,7 +188,7 @@ nav a:hover{
 ******************************/
 
 .categories{
-    margin-top: 2em;
+    margin-top: 7em;
 }
 
 .categories ul{
@@ -100,15 +210,6 @@ nav a:hover{
 .categories a:hover{
     text-decoration: underline;
 }
-.pagination{
-    display: flex;
-    margin-top: 2em;
-}
-
-.pagination li{
-    list-style: none;
-    margin: 2em;
-}
 
 /******************************
 
@@ -121,6 +222,11 @@ section{
     flex-wrap: wrap;
     justify-content: center;
     min-height: 70vh;
+    margin-top: 3em;
+}
+
+.index_crud{
+    margin-top:-2em;
 }
 
 section form{
@@ -262,7 +368,7 @@ form span{
 
 .new{
     text-align: center;
-    margin-top: 2em;
+    margin-top: 1em;
     margin-bottom: -1em;
 }
 
@@ -270,8 +376,7 @@ form span{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 2em;
-
+    margin-bottom: 1em;
 }
 
 .spinner{
@@ -319,16 +424,4 @@ form span{
     flex-direction: column;
     margin-left: 1em;
     align-content: space-between;
-}
-
-/******************************
-
-       RESPONSIVE
-
-******************************/
-
-@media screen and (max-width: 572px){
-    .logo{
-        display: none;
-    }
 }

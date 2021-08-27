@@ -24,15 +24,16 @@ exit();
 
 <?php require('templates/navlog.php');?>
 
-<div class="categories">
-    <ul>
-        <li><a href="comics.php">Comics</a></li>
-        <li><a href="manga.php">Mangas</a></li>
-        <li><a href="bd.php">Bande dessinées</a></li>
-        <li><a href="goodies.php">Goodies</a></li>
-    </ul>
-</div>
+
 <div class="annonces">
+    <div class="categories">
+        <ul>
+            <li><a href="comics.php">Comics</a></li>
+            <li><a href="manga.php">Mangas</a></li>
+            <li><a href="bd.php">Bande dessinées</a></li>
+            <li><a href="goodies.php">Goodies</a></li>
+        </ul>
+    </div>
 <?php
 //pagination
 $annoncesParPage= 8;
@@ -55,7 +56,7 @@ $sql = "SELECT * FROM annonces ORDER BY date_publication DESC LIMIT $depart ,$an
 $rs = $db->prepare($sql);
 $rs->execute();?>
 
-<section>
+<section class="index_crud">
 <div id="annonces">
 <?php while($data = $rs->fetch()){?>
     
