@@ -1,5 +1,5 @@
 <header>
-    <h1 class="logo">Geek Avenue</h1>
+    <h1 class="logo"><b>G</b>eek Avenue</h1>
     <input type="checkbox" id="nav-toggle" class="nav-toggle">
     <nav>
         <ul>

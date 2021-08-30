@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 
 :root{
     --color1: hsl(203, 30%, 26%);
     --color2: hsl(206, 46%, 37%);
     --color3: hsl(39, 92%, 57%);
     --font-title: 'Acme', sans-serif;
+    --font-big: 'Bangers', cursive;
 }
 
 
@@ -13,10 +15,12 @@
 }
 
 body{
-    background-color: rgb(233, 230, 230);
     min-height: 100vh;
-    font-family: var(--font-title);
+    font-family: var(--font-big);
     margin: 0;
+    background-image: url(images/bg.svg);
+    background-color: #e3e3e3;
+    background-size: contain;
 }
 
 
@@ -25,27 +29,33 @@ body{
 **********************/
 
 header{
-    background: linear-gradient(176deg, #f5ca1b 0%, #adffe2 100%);
+    background-color: #e3e3e3;
     text-align: center;
-    position: fixed;
+    position: relative;
     z-index: 999;
     width: 100%;
     top: 0;
+    border-bottom: solid 1px #5f5f5f;
+    box-shadow: 0 4px 5px hsl(209, 56%, 46%);
 }
 
 .logo{
     color: hsl(60, 4%, 10%);
-    letter-spacing: 2px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-family: var(--font-big);
+}
+
+.logo b{
+    color: hsl(209, 56%, 46%);
 }
 
 nav{
   position: absolute; 
   text-align: left; 
-  
   left: 0;
-  background: linear-gradient(176deg, #adffe2 0%, #f5ca1b 100%);
   width: 100%;
-  position: fixed;
+  position: relative;
   transform: scale(1, 0);
   transform-origin: top;
   transition: transform 400ms ease-in-out;
@@ -165,7 +175,7 @@ nav a:hover{
         content:'';
         display: block;
         height: 5px;
-        background: white;
+        background: hsl(209, 56%, 46%);
         position: absolute;
         top: -1em;
         left: 0;
@@ -188,7 +198,10 @@ nav a:hover{
 ******************************/
 
 .categories{
-    margin-top: 7em;
+    margin-top: 2em;
+    text-transform: uppercase;
+    font-family: var(--font-big);
+    letter-spacing: 3px;
 }
 
 .categories ul{
@@ -205,11 +218,13 @@ nav a:hover{
     text-decoration: none;
     font-size: 1.2rem;
     color: hsl(0, 4%, 15%);
+    transition: 250ms ease-in-out;
 }
 
 .categories a:hover{
-    text-decoration: underline;
+    color: #3477b7;
 }
+
 
 /******************************
 
@@ -222,7 +237,7 @@ section{
     flex-wrap: wrap;
     justify-content: center;
     min-height: 70vh;
-    margin-top: 3em;
+    margin-bottom: 3em;
 }
 
 .index_crud{
@@ -232,13 +247,18 @@ section{
 section form{
     display: flex;
     flex-direction: column;
-    margin: auto;
 }
 
 .formlogin{
+    margin: auto;
     width: 320px;
     height: 400px;
-    background-color: gray;
+    background: radial-gradient(#94caff 0%, #3477b7 100%);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    border: 10px solid hsl(0, 14%, 93%);
+    outline: 1px solid hsl(0, 3%, 29%);
+    outline-offset: -1px;
+    margin: 2em;
 }
 
 .formlogin div{
@@ -269,6 +289,12 @@ form span{
     
 }
 
+.submit{
+    font-family: var(--font-big);
+    font-size: 1.1em;
+    letter-spacing: 3px;
+}
+
 .eye{
     font-size: 1.5em;
     align-items: center;
@@ -280,6 +306,15 @@ form span{
 
 ******************************/
 
+h3{
+    letter-spacing: 2px;
+    font-size: 1em;
+    background: hsl(0, 14%, 93%);
+    border: solid 3px hsl(0, 7%, 10%);
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
 .select{
     flex-wrap: wrap;
 }
@@ -287,12 +322,12 @@ form span{
 .annoncescontainer{
     width: 320px;
     height: 400px;
-    background: linear-gradient(173deg, #211f1e 1%, #232021 4%, #c3b0c3 71%, #e0dce4 100%);
-    display: flex;
-    margin-top: 3em;
-    margin-left: 2em;
-    border-radius: 5px;
-    box-shadow: 0px 8px 0px 0px hsl(200, 5%, 55%);
+    background: radial-gradient(#94caff 0%, #3477b7 100%);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    border: 10px solid hsl(0, 14%, 93%);
+    outline: 1px solid hsl(0, 3%, 29%);
+    outline-offset: -1px;
+    margin: 2em;
 }
 
 .annonceswrapper{
@@ -303,73 +338,56 @@ form span{
 
 .three{
     cursor: pointer;
-    font-family: var(--font_title);
-    border-radius: 7px;
+    font-family: var(--font-big);
+    letter-spacing: 2px;
     border: none;
     position: relative;
-    color: hsl(0, 3%, 94%);
 }
 
 .three a{
     text-decoration: none;
-    color: hsl(0, 3%, 94%);
+    color: hsl(0, 6%, 14%);
     font-size: 1.2rem;
 }
 
 .show{
-    background-color: hsl(108, 89%, 40%);
-    border: solid hsl(108, 89%, 40%);
-    box-shadow: 0 6px hsl(108, 86%, 30%);
+    background-color: hsl(210, 22%, 96%);
+    border: solid hsl(0, 7%, 14%) 4px;
     padding-right: 1.5em;
     padding-left: 1.5em;
+    transform: skew(-15deg);
+}
+
+.show a{
+    color: hsl(0, 7%, 10%);
 }
 
 .show:hover{
-    box-shadow: 0 4px hsl(108, 86%, 20%);
-    top: 2px;
+    transition: 500ms;
+    transform: skew(0);
 }
 
-.show:active{
-    box-shadow: 0 0 hsl(108, 86%, 20%);
-    top:6px;
+.update,
+.delete{
+    border: 3px solid hsl(0, 7%, 14%);
 }
 
-.update{
-    background-color: hsl(32, 86%, 46%);
-    border: solid hsl(32, 86%, 46%);
-    box-shadow: 0 6px hsl(32, 86%, 36%);
+.update:hover,
+.delete:hover{
+    transition: 500ms;
 }
 
 .update:hover{
-    box-shadow: 0 4px hsl(32, 86%, 26%);
-    top: 2px;
-}
-
-.update:active{
-    box-shadow: 0 0 hsl(32, 86%, 16%);
-    top:6px;
-}
-
-.delete{
-    background-color: hsl(0, 89%, 42%);
-    border: solid hsl(0, 89%, 42%);
-    box-shadow: 0 6px hsl(0, 89%, 32%);
+    background: hsl(16, 100%, 42%);
 }
 
 .delete:hover{
-    box-shadow: 0 4px hsl(0, 89%, 22%);
-    top: 2px;
-}
-
-.delete:active{
-    box-shadow: 0 0 hsl(32, 86%, 16%);
-    top:6px;
+    background: hsl(0, 100%, 38%);
 }
 
 .new{
     text-align: center;
-    margin-top: 1em;
-    margin-bottom: -1em;
+    margin-top: 2em;
 }
 
 #annonces{
@@ -377,6 +395,7 @@ form span{
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 1em;
+    margin-top: 1.5em;
 }
 
 .spinner{
@@ -405,6 +424,17 @@ form span{
 
 ******************************/
 
+.containerdetail{
+    margin: auto;
+    padding: 2em 2em;
+    background: radial-gradient(#94caff 0%, #3477b7 100%);
+    display: flex;
+    align-items: center;
+    box-shadow: 10px 10px 20px hsl(0, 2%, 50%);
+    border: 10px solid hsl(0, 14%, 93%);
+    outline: 1px solid hsl(0, 3%, 29%);
+}
+
 .containerdetail img{
     box-shadow: 5px 5px 10px hsl(0, 1%, 19%);
     display: flex;
@@ -415,7 +445,6 @@ form span{
 .annoncesdetail{
     display: flex;
     justify-content: center;
-    margin-top: 4em;
 }
 
 .annoncescontent{
@@ -424,4 +453,52 @@ form span{
     flex-direction: column;
     margin-left: 1em;
     align-content: space-between;
+    align-items: baseline;
+}
+
+/******************************
+
+       Formulaire d'ajout
+
+******************************/
+
+.formnew form{
+    display: flex;
+    margin-top: 5em;
+    padding: 2em;
+    background-color: hsl(0, 7%, 55%);
+    border-radius: 5px;
+    box-shadow: 10px 10px 20px hsl(0, 4%, 35%);
+}
+
+form input{
+    margin-block-start: 1em;
+    padding: 1em;
+}
+
+textarea{
+    margin-block-start: 1em;
+    
+}
+
+select{
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    padding: 1em;
+}
+
+::placeholder{
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+}
+
+
+/******************************
+
+       bulle en style bd
+
+******************************/
+
+.comics title{
+    background: hsl(0, 14%, 93%);
 }

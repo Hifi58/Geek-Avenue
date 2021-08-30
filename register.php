@@ -16,17 +16,16 @@ require_once('sql/connection.php');
 
     <?php require('templates/nav.html')?>
 
-    <section class='inscription'>
-        <form action="sql/sign_up.php" method="POST">
-
-            <input class="champs" type="text" name="name" placeholder="Nom d'utilisateur"  />
-            <span id="display"><input type="password" name="password" placeholder="Mot de passe" id="input" /><p class="eye">👁</p></span>
-            <input type="password" name="passwordbis" placeholder="Répétez votre mot de passe" />
-            <input type="email" name="mail" placeholder="E-mail" />
-            <input  class="submit" type="submit" name="valider" value="Inscription"/>
-
+    <section>
+        <form action="sql/sign_up.php" method="POST" class="formlogin">
+            <div>
+                <input class="champs" type="text" name="name" placeholder="Nom d'utilisateur"  />
+                <input type="password" name="password" placeholder="Mot de passe" id="input" />
+                <input type="password" name="passwordbis" placeholder="Répétez votre mot de passe" />
+                <input type="email" name="mail" placeholder="E-mail" />
+                <input  class="submit" type="submit" name="valider" value="Inscription"/>
+            </div>
         </form>
     </section>
-<script src="js/login.js"></script>
 </body>
 </html>

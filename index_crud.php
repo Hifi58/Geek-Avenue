@@ -30,7 +30,7 @@ exit();
         <ul>
             <li><a href="comics.php">Comics</a></li>
             <li><a href="manga.php">Mangas</a></li>
-            <li><a href="bd.php">Bande dessinées</a></li>
+            <li><a href="bd.php">Bande-dessinées</a></li>
             <li><a href="goodies.php">Goodies</a></li>
         </ul>
     </div>
@@ -62,12 +62,10 @@ $rs->execute();?>
     
 <div class="annoncescontainer">  
     <div class="annonceswrapper">       
-        <h2><?php echo $data['titre']; ?></h2>
-        <h4><?php echo $data['lieu']; ?></h4>
-        <!-- <p><?php echo $data['contenu']; ?></p> -->
-        <p><?php echo $data['prix']. '€'; ?></p>
-        <!-- <img src="style/images<?php echo $data['image'];?>" width="150px"> -->
-        <p><?php echo $data['date_publication']; ?></p>
+        <span class="comicstitle"><h2><?php echo $data['titre']; ?></h2></span>
+        <span class="comicsplace"><h4><?php echo $data['lieu']; ?></h4></span>
+        <span class="comicsprice"><p><?php echo $data['prix']. '€'; ?></p></span>
+        <span class="comicsdate"><p><?php echo $data['date_publication']; ?></p></span>
         <button class="three show"><?php echo "<a href= show.php?id_annonces=" . $data['id_annonces'] . ">Voir</a>"?></button>
     </div>  
 </div>

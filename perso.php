@@ -26,11 +26,11 @@ $rs = $db->prepare("SELECT * FROM annonces INNER JOIN users ON users.id_users=an
 $rs->bindParam(':id_users', $id_users);
 $rs->execute();?>
 
-<div class="new">
+  <div class="new">
     <button class="three show"><a href="new.php">Ajouter</a></button>
 </div>
 <section>
-  
+
 <?php while($data = $rs->fetch()){?>
 <div class="annoncescontainer">  
     <div class="annonceswrapper">       
